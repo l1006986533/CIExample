@@ -15,12 +15,12 @@ public class Calculator {
             if(i=='.' || isNumber(i)) 
                 tmp+=i;
             else{
-                if(!tmp.isBlank()) splitted.add(tmp);
+                if(!tmp.isEmpty()) splitted.add(tmp);
                 splitted.add(String.valueOf(i));
                 tmp="";
             }
         }
-        if(!tmp.isBlank()) splitted.add(tmp);
+        if(!tmp.isEmpty()) splitted.add(tmp);
         Map<String, Integer> priority = new HashMap<String, Integer>(){{
             put("+", 1);
             put("-", 1);
