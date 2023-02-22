@@ -8,6 +8,6 @@ public class CalculatorTest
     @Test
     public void shouldAnswerWithTrue(){
         Calculator testObj=new Calculator();
-        assertEquals(testObj.calculator("1+2"), "3");
+        assertEquals("3",testObj.calculator("1+2"));
     }
 }
