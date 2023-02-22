@@ -6,11 +6,10 @@ public class Calculator
 {
     public static void main(String[] args){
         String formula = "(1+2)*3*2+6/2";
-        String result = new Calculator().calculator(formula);
+        String result = new Calculator().calculator_without_check(formula);
         System.out.println(result);
     }
-    String calculator(String formula){
-        //1.分割 
+    String calculator_without_check(String formula){
         List<String> splitted=new ArrayList<>();
         String tmp="";
         for(char i:formula.toCharArray()){
@@ -23,7 +22,6 @@ public class Calculator
             }
         }
         if(!tmp.isBlank()) splitted.add(tmp);
-        //2.转后缀表达式
         Map<String, Integer> priority = new HashMap<String, Integer>(){{
             put("+", 1);
             put("-", 1);
@@ -36,12 +34,7 @@ public class Calculator
         List<String> list = new ArrayList<>();
         for(int i=0;i<splitted.size();i++){
             if(priority.containsKey(splitted.get(i))){
-                //运算符号
                 String operator=splitted.get(i);
-                //1.栈空
-                //2.左括号进栈
-                //3.栈顶是左括号，输入右括号时，进栈
-                //4.栈顶是加减，当前元素是乘除
                 if(opstack.isEmpty() ||
                    operator.equals("(") ||
                    (opstack.peek().equals("(") && operator.equals(")")) ||
@@ -52,30 +45,28 @@ public class Calculator
                     while(!opstack.peek().equals("(")){
                         list.add(opstack.pop());
                     }
-                    opstack.pop(); //弹出左括号
+                    opstack.pop();
                 }else{
                     while(!opstack.isEmpty() && priority.get(opstack.peek())>=priority.get(operator)){
-                        list.add(opstack.pop()); //弹出所有乘除
+                        list.add(opstack.pop());
                     }
                     opstack.push(operator);
                 }
             }else{
-                //数字
                 list.add(splitted.get(i));
             }
         }
         while (!opstack.isEmpty()){
             list.add(opstack.pop());
         }
-        //3.计算结果
-        Stack<String> numstack = new Stack<String>();//用于保存数字
+        Stack<String> numstack = new Stack<String>();
         for (String str : list){
             if (isNumber(str)){
                 numstack.push(str);
             }else {
                 double num1 = Double.parseDouble(numstack.pop());
                 double num2 = Double.parseDouble(numstack.pop());
-                double result = caclulateRes(num1, num2, str);
+                double result = caclulateRes(num2, num1, str);
                 numstack.push(doubleTrans(result));
             }
         }
@@ -101,16 +92,16 @@ public class Calculator
         double result;
         switch (experssion){
             case "+" :
-                result = num1 + num2;
+                result = add(num1, num2);
                 break;
             case "-" :
-                result = num2 - num1;
+                result = sub(num1, num2);
                 break;
             case "*" :
-                result = num2 * num1;
+                result = mul(num1, num2);
                 break;
             case "/" :
-                result = num2 / num1;
+                result = div(num1, num2);
                 break;
             default:
                 throw new RuntimeException("Unexpected experssion: " + experssion);
