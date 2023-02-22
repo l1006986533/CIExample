@@ -2,8 +2,7 @@ package com.example;
 
 import java.util.*;
 
-public class Calculator 
-{
+public class Calculator {
     public static void main(String[] args){
         String formula = "(1+2)*3*2+6/2";
         String result = new Calculator().calculator_without_check(formula);
