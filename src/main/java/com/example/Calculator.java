@@ -113,15 +113,15 @@ public class Calculator {
     }
 
     double add(double a,double b){
-        return a+b;
+        return 0;
     }
     double sub(double a,double b){
-        return a-b;
+        return 0;
     }
     double mul(double a,double b){
-        return a*b;
+        return 0;
     }
     double div(double a,double b){
-        return a/b;
+        return 0;
     }
 }
