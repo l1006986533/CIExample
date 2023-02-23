@@ -4,23 +4,12 @@ import java.util.*;
 
 public class Calculator {
     public static void main(String[] args){
-        String formula = "(1+2)*3*2+6/2";
+        String formula = "(1+2)*3*2+6/2"; //21
         String result = new Calculator().calculator_without_check(formula);
         System.out.println(result);
     }
     String calculator_without_check(String formula){
-        List<String> splitted=new ArrayList<>();
-        String tmp="";
-        for(char i:formula.toCharArray()){
-            if(i=='.' || isNumber(i)) 
-                tmp+=i;
-            else{
-                if(!tmp.isEmpty()) splitted.add(tmp);
-                splitted.add(String.valueOf(i));
-                tmp="";
-            }
-        }
-        if(!tmp.isEmpty()) splitted.add(tmp);
+        List<String> splitted=formulaSplitter(formula);
         Map<String, Integer> priority = new HashMap<String, Integer>(){{
             put("+", 1);
             put("-", 1);
@@ -86,6 +75,21 @@ public class Calculator {
             return String.valueOf((long)d);
         }
         return String.valueOf(d);
+    }
+    List<String> formulaSplitter(String formula){
+        List<String> result=new ArrayList<>();
+        String tmp="";
+        for(char i:formula.toCharArray()){
+            if(i=='.' || isNumber(i)) 
+                tmp+=i;
+            else{
+                if(!tmp.isEmpty()) result.add(tmp);
+                result.add(String.valueOf(i));
+                tmp="";
+            }
+        }
+        if(!tmp.isEmpty()) result.add(tmp);
+        return result;
     }
     double caclulateRes(double num1, double num2, String experssion){
         double result;
