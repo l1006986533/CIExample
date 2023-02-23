@@ -7,6 +7,6 @@ public class CalculatorTest{
     Calculator testObj=new Calculator();
     @Test
     public void addTest(){
-        assertEquals("3",testObj.calculator_without_check("1+2"));
+        assertEquals(3,testObj.add(1,2),0.00001);
     }
 }
