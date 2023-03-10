@@ -5,10 +5,10 @@ import java.util.*;
 public class Calculator {
     public static void main(String[] args){
         String formula = "(1+2)*3*2+6/2"; //21
-        String result = new Calculator().calculator_without_check(formula);
+        String result = new Calculator().calculator(formula);
         System.out.println(result);
     }
-    String calculator_without_check(String formula){
+    String calculator(String formula){
         List<String> splitted=formulaSplitter(formula);
         Map<String, Integer> priority = new HashMap<String, Integer>(){{
             put("+", 1);
