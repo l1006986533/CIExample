@@ -9,4 +9,8 @@ public class CalculatorTest{
     public void addTest(){
         assertEquals(3,testObj.add(1,2),0.00001);
     }
+    @Test
+    public void mulTest(){
+        assertEquals(6,testObj.mul(3,2),0.00001);
+    }
 }
