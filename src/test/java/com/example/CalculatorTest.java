@@ -15,6 +15,6 @@ public class CalculatorTest{
     }
     @Test
     public void subTest(){
-        assertEquals(1,testObj.sub(3,1),0.00001);
+        assertEquals(2,testObj.sub(3,1),0.00001);
     }
 }
