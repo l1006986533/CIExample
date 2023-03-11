@@ -1,6 +1,9 @@
 package com.example;
 
 import static org.junit.Assert.assertEquals;
+
+import java.beans.Transient;
+
 import org.junit.Test;
 
 public class CalculatorTest{
@@ -11,7 +14,7 @@ public class CalculatorTest{
     }
     @Test
     public void mulTest(){
-        assertEquals(8,testObj.mul(2,4),0.00001);
+        assertEquals(10,testObj.mul(2,5),0.00001);
     }
     @Test
     public void subTest(){
