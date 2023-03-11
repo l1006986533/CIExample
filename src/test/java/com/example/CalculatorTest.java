@@ -22,6 +22,16 @@ public class CalculatorTest{
     }
     @Test
     public void divTest(){
-        assertEquals(4,testObj.div(8,2),0.00001);
+        assertEquals(2,testObj.div(8,4),0.00001);
+    }
+
+
+    @Test
+    public void calculatorTest()
+    {
+        assertEquals(testObj.calculator("(1+2)*3+6/2"),"12");
+        assertEquals(testObj.calculator("2/3+3*2-10"),"-3.333333333333333");
+        assertEquals(testObj.calculator("4*4-2/5+(5-1)*2"),"23.6");
+        assertEquals(testObj.calculator("0*9+(0-100)*(0/1)"),"0");
     }
 }
