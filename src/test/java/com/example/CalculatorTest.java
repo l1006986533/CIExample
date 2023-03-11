@@ -23,6 +23,10 @@ public class CalculatorTest{
     @Test
     public void divTest(){
         assertEquals(2,testObj.div(8,4),0.00001);
+        assertEquals(0,testObj.div(0,1),0.00001); //0/1
+        assertEquals(true,Double.isNaN(testObj.div(0,0)));// 0/0
+        assertEquals(true,Double.isInfinite(testObj.div(1,0))); // 1/0
+        assertEquals(true,Double.isInfinite(testObj.div(-1,0))); // -1/0
     }
 
 
