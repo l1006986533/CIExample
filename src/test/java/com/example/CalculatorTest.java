@@ -11,6 +11,6 @@ public class CalculatorTest{
     }
     @Test
     public void mulTest(){
-        assertEquals(6,testObj.mul(3,2),0.00001);
+        assertEquals(8,testObj.mul(2,4),0.00001);
     }
 }
