@@ -119,7 +119,7 @@ public class Calculator {
         return 0;
     }
     double mul(double a,double b){
-        return 0;
+        return a*b;
     }
     double div(double a,double b){
         return 0;
