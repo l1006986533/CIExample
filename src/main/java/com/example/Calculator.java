@@ -122,6 +122,6 @@ public class Calculator {
         return a*b;
     }
     double div(double a,double b){
-        return 0;
+        return a/b;
     }
 }

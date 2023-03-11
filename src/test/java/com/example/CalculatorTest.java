@@ -17,4 +17,8 @@ public class CalculatorTest{
     public void subTest(){
         assertEquals(2,testObj.sub(3,1),0.00001);
     }
+    @Test
+    public void divTest(){
+        assertEquals(4,testObj.div(8,2),0.00001);
+    }
 }
