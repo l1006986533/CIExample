@@ -24,5 +24,6 @@ public class CalculatorTest{
         assertEquals(true,Double.isNaN(testObj.div(0,0)));// 0/0
         assertEquals(true,Double.isInfinite(testObj.div(1,0))); // 1/0
         assertEquals(true,Double.isInfinite(testObj.div(-1,0))); // -1/0
+        // 123123123123
     }
 }
